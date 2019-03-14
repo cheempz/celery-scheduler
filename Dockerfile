@@ -1,5 +1,5 @@
 # Pull base image.
-FROM ubuntu
+FROM ubuntu:14.04
 
 # Install Supervisor.
 RUN \
@@ -7,7 +7,7 @@ RUN \
   mkdir /var/log/redis && \
   mkdir /home/ubuntu && \
   apt-get update && \
-  apt-get install -y supervisor python-pip wget vim git && \
+  apt-get install -y supervisor python-dev python-pip wget vim git && \
   rm -rf /var/lib/apt/lists/* && \
   sed -i 's/^\(\[supervisord\]\)$/\1\nnodaemon=true/' /etc/supervisor/supervisord.conf
 
